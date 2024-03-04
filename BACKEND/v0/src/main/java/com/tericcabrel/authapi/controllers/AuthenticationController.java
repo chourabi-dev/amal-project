@@ -7,6 +7,7 @@ import com.tericcabrel.authapi.responses.LoginResponse;
 import com.tericcabrel.authapi.services.AuthenticationService;
 import com.tericcabrel.authapi.services.JwtService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/auth")
 @RestController
+@CrossOrigin( value="*" )
 public class AuthenticationController {
     private final JwtService jwtService;
     private final AuthenticationService authenticationService;
@@ -25,7 +27,14 @@ public class AuthenticationController {
 
     @PostMapping("/signup")
     public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) {
+    	
+    	// CREATE COMPANY
+    	
         User registeredUser = authenticationService.signup(registerUserDto);
+        
+        // company setchef(user)
+        
+        // company save
 
         return ResponseEntity.ok(registeredUser);
     }

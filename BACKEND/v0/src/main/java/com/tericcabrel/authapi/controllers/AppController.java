@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/app")
 @RestController
+@CrossOrigin( value="*" )
 public class AppController {
 	
 	

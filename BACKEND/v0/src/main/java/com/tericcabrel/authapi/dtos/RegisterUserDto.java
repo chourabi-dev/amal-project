@@ -4,6 +4,24 @@ public class RegisterUserDto {
     private String email;
     private String password;
     private String fullName;
+    
+    /*
+activity
+: 
+"1"
+company
+: 
+"SperDev"
+email
+: 
+"ghazikhaldi777@icloud.com"
+fullname
+: 
+"khalil kassab"
+password
+: 
+"123456789"
+     */
 
     public String getEmail() {
         return email;

@@ -80,6 +80,9 @@
                         <select  formControlName="activity" class="form-control form-control-solid h-auto py-5 px-6" >
                             <option value="">Please choose your activity sector</option>
                             <!-- API -->
+
+                            <option [value]="a.id" *ngFor="let a of activities">{{ a.name }}</option>
+
                         </select>
                         <p  *ngIf=" form.controls.activity.valid == false  " >
                             <small class="text-danger">This feilds is required</small>
