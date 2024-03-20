@@ -24,6 +24,7 @@
             ],
             "styles": [
               "src/assets/css/style.bundle.css",
+              "src/assets/plugins/global/plugins.bundle.css",
               "src/styles.css"
             ],
             "scripts": []

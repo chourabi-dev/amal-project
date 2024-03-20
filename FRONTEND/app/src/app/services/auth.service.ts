@@ -18,5 +18,11 @@ export class AuthService {
     localStorage.setItem('token',token);
   }
 
+  createAccount(body:any){
+    
+    return this.http.post( environment.server+'/auth/signup',body)
+    
+  }
+
   
 }

@@ -108,6 +108,17 @@
                         <div class="form-group d-flex flex-wrap flex-center">
                             <button type="submit" [disabled]="! form.valid "   class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4">Create account</button> 
                         </div>
+
+
+                        <div class="mt-3">
+                            <div class="alert alert-success" *ngIf=" success != '' ">
+                                {{ success }}
+                            </div>
+                            <div class="alert alert-danger" *ngIf=" error != '' ">
+                                {{ error }}
+                            </div>
+                            
+                        </div>
                     <div>
 
                     </div>

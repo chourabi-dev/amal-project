@@ -4,8 +4,9 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path:'', component:HomePageComponent, canActivate:[AuthGuard] },
-  { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) }
+  { path:'', redirectTo:'dashboard', pathMatch:'full' },
+  { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'dashboard', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule) , canActivate:[AuthGuard] }
 ];
 
 @NgModule({

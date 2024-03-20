@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { APP_ID, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 import { PublicApiService } from 'src/app/services/public-api.service';
 
 @Component({
@@ -22,9 +23,10 @@ export class CreateAccountComponent implements OnInit {
 
   activities:any[] = [];
 
+  success:string='';
+  error:string='';
 
-
-  constructor(private publicApi:PublicApiService) { }
+  constructor(private publicApi:PublicApiService, private auth:AuthService) { }
 
   ngOnInit(): void {
     this.getActivities();
@@ -37,8 +39,27 @@ export class CreateAccountComponent implements OnInit {
   }
 
   createAccount(){
-    const body  = this.form.value; 
-    console.log(body);
+
+    this.error='';
+    this.success='';
+
+    const body  = this.form.value;  
+
+    const payload = {
+      email: body.email,
+      password: body.password,
+      fullName: body.fullname,
+      activity: body.activity,
+      company: body.company
+      
+
+    }
+
+    this.auth.createAccount(payload).toPromise().then((res:any)=>{
+      this.success='Account created successfylly.';
+    }).catch((err)=>{
+      this.error='Error while trying to create your account.';
+    })
     
   }
 

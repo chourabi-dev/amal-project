@@ -4,26 +4,29 @@ public class RegisterUserDto {
     private String email;
     private String password;
     private String fullName;
+    private long activity;
+    private String company; 
     
-    /*
-activity
-: 
-"1"
-company
-: 
-"SperDev"
-email
-: 
-"ghazikhaldi777@icloud.com"
-fullname
-: 
-"khalil kassab"
-password
-: 
-"123456789"
-     */
+    
+    
 
-    public String getEmail() {
+    public long getActivity() {
+		return activity;
+	}
+
+	public void setActivity(long activity) {
+		this.activity = activity;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getEmail() {
         return email;
     }
 
